@@ -1,0 +1,9 @@
+{
+  "*.{js,json,md,ts,yaml,yml}": [
+    "prettier --config .prettierrc --write"
+  ],
+  "*.{js,ts}": [
+    "eslint --config .eslintrc",
+    "bash -c 'tsc --pretty --noEmit'"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "typescript-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sebastiantf/typescript-template.git",
+  "author": "Sebastian T F <sebastian.tharakan97@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "commit": "git-cz",
+    "lint": "eslint . --ext .ts",
+    "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "start": "yarn build && node dist/index.js",
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
+    "test": "jest",
+    "test:cov": "jest --coverage"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@types/jest": "^29.0.1",
+    "@types/node": "^18.7.16",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.0",
+    "jest": "^29.0.3",
+    "lint-staged": "^13.0.3",
+    "pinst": "^3.0.0",
+    "prettier": "^2.7.1",
+    "ts-jest": "^29.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.3"
+  }
+}
