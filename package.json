@@ -1,8 +1,8 @@
 {
-  "name": "typescript-template",
+  "name": "ethers-errors",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/sebastiantf/typescript-template.git",
+  "repository": "https://github.com/sebastiantf/ethers-errors.git",
   "author": "Sebastian T F <sebastian.tharakan97@gmail.com>",
   "license": "MIT",
   "scripts": {
