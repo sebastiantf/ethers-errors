@@ -1,7 +1,8 @@
 import { ErrorCode } from '@ethersproject/logger';
+import { CallExceptionError } from './lib/CALL_EXCEPTION/types';
 import { UnpredictableGasLimitError } from './lib/UNPREDICTABLE_GAS_LIMIT/types';
 
-export type ParsedError = UnpredictableGasLimitError;
+export type ParsedError = UnpredictableGasLimitError | CallExceptionError;
 
 /**
  * Result
