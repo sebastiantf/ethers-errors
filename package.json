@@ -14,7 +14,8 @@
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
-    "test": "jest",
+    "pretest": "typescript-json-schema tsconfig.json Result --required --strictNullChecks -o ./test/schemas/Result.schema.json",
+    "test": "yarn pretest; jest",
     "test:cov": "jest --coverage",
     "ts:check": "tsc --noEmit"
   },
