@@ -2,11 +2,12 @@ import { Logger } from '@ethersproject/logger';
 import { Reverts__factory } from '@sebastiantf/reverts/dist/types/factories/Reverts__factory';
 import { Reverts } from '@sebastiantf/reverts/dist/types/Reverts';
 import { ethers } from 'ethers';
-import { generateResultJSONSchema, REVERTS_ADDRESS, RPC_URL } from './utils';
+import { REVERTS_ADDRESS, RPC_URL } from './utils';
 
 import Ajv, { ValidateFunction } from 'ajv';
 import { parseEthersError } from '../src';
 import { EthersError } from '../src/types';
+import ResultSchema from './schemas/Result.schema.json';
 const ajv = new Ajv();
 
 let provider: ethers.providers.JsonRpcProvider;
@@ -16,9 +17,7 @@ let validateResult: ValidateFunction;
 beforeAll(() => {
   provider = new ethers.providers.JsonRpcProvider(RPC_URL);
   reverts = Reverts__factory.connect(REVERTS_ADDRESS, provider);
-  validateResult = ajv.compile(
-    JSON.parse(JSON.stringify(generateResultJSONSchema()))
-  );
+  validateResult = ajv.compile(ResultSchema);
 });
 
 describe(Logger.errors.CALL_EXCEPTION, () => {

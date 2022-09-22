@@ -4,7 +4,8 @@ import { Reverts } from '@sebastiantf/reverts/dist/types/Reverts';
 import { ethers } from 'ethers';
 import { parseEthersError } from '../src';
 import { EthersError } from '../src/types';
-import { generateResultJSONSchema, REVERTS_ADDRESS, RPC_URL } from './utils';
+import ResultSchema from './schemas/Result.schema.json';
+import { REVERTS_ADDRESS, RPC_URL } from './utils';
 
 import Ajv, { ValidateFunction } from 'ajv';
 const ajv = new Ajv();
@@ -17,9 +18,7 @@ beforeAll(() => {
   provider = new ethers.providers.JsonRpcProvider(RPC_URL);
   reverts = Reverts__factory.connect(REVERTS_ADDRESS, provider);
   // generate and compile JSON schema for Result
-  validateResult = ajv.compile(
-    JSON.parse(JSON.stringify(generateResultJSONSchema()))
-  );
+  validateResult = ajv.compile(ResultSchema);
 });
 
 describe(Logger.errors.UNPREDICTABLE_GAS_LIMIT, () => {
