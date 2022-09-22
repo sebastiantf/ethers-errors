@@ -1,0 +1,244 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "CallExceptionError": {
+      "description": "CALL_EXCEPTION Error\n\nExample:\n```json\n{\n  \"reason\": \"Reverts: requireWithMessage\",\n  \"code\": \"CALL_EXCEPTION\",\n  \"method\": \"requireWithMessage()\",\n  \"data\": \"0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001b526576657274733a2072657175697265576974684d6573736167650000000000\",\n  \"errorArgs\": [\"Reverts: requireWithMessage\"],\n  \"errorName\": \"Error\",\n  \"errorSignature\": \"Error(string)\",\n  \"address\": \"0x719f833CE1C1490fD1d773625d097654B6f82310\",\n  \"args\": [],\n  \"transaction\": {\n    \"data\": \"0x594c9297\",\n    \"to\": \"0x719f833CE1C1490fD1d773625d097654B6f82310\"\n  }\n}\n```",
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "args": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "code": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "data": {
+          "type": "string"
+        },
+        "errorArgs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "errorName": {
+          "type": "string"
+        },
+        "errorSignature": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "transaction": {
+          "$ref": "#/definitions/Transaction"
+        }
+      },
+      "required": [
+        "address",
+        "args",
+        "code",
+        "data",
+        "errorArgs",
+        "errorName",
+        "errorSignature",
+        "method",
+        "reason",
+        "transaction"
+      ],
+      "type": "object"
+    },
+    "Error": {
+      "properties": {
+        "body": {
+          "$ref": "#/definitions/JsonRpcError"
+        },
+        "code": {
+          "type": "string"
+        },
+        "error": {
+          "$ref": "#/definitions/ErrorError"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "requestBody": {
+          "$ref": "#/definitions/JsonRpcRequest<any>"
+        },
+        "requestMethod": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "body",
+        "code",
+        "error",
+        "reason",
+        "requestBody",
+        "requestMethod",
+        "url"
+      ],
+      "type": "object"
+    },
+    "ErrorCode": {
+      "enum": [
+        "ACTION_REJECTED",
+        "BUFFER_OVERRUN",
+        "CALL_EXCEPTION",
+        "INSUFFICIENT_FUNDS",
+        "INVALID_ARGUMENT",
+        "MISSING_ARGUMENT",
+        "MISSING_NEW",
+        "NETWORK_ERROR",
+        "NONCE_EXPIRED",
+        "NOT_IMPLEMENTED",
+        "NUMERIC_FAULT",
+        "REPLACEMENT_UNDERPRICED",
+        "SERVER_ERROR",
+        "TIMEOUT",
+        "TRANSACTION_REPLACED",
+        "UNEXPECTED_ARGUMENT",
+        "UNKNOWN_ERROR",
+        "UNPREDICTABLE_GAS_LIMIT",
+        "UNSUPPORTED_OPERATION"
+      ],
+      "type": "string"
+    },
+    "ErrorError": {
+      "properties": {
+        "code": {
+          "type": "number"
+        },
+        "data": {
+          "type": "string"
+        }
+      },
+      "required": ["code", "data"],
+      "type": "object"
+    },
+    "ErrorResponse": {
+      "properties": {
+        "code": {
+          "type": "number"
+        },
+        "data": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["code", "message"],
+      "type": "object"
+    },
+    "JsonRpcError": {
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/ErrorResponse"
+        },
+        "id": {
+          "type": "number"
+        },
+        "jsonrpc": {
+          "type": "string"
+        }
+      },
+      "required": ["error", "id", "jsonrpc"],
+      "type": "object"
+    },
+    "JsonRpcRequest<any>": {
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "jsonrpc": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "params": {}
+      },
+      "required": ["id", "jsonrpc", "method", "params"],
+      "type": "object"
+    },
+    "Transaction": {
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        }
+      },
+      "required": ["data", "to"],
+      "type": "object"
+    },
+    "Transaction_1": {
+      "properties": {
+        "data": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        }
+      },
+      "required": ["data", "to"],
+      "type": "object"
+    },
+    "UnpredictableGasLimitError": {
+      "description": "UNPREDICTABLE_GAS_LIMIT Error\n\nExample:\n```json\n{\n  \"reason\": \"cannot estimate gas; transaction may fail or may require manual gas limit\",\n  \"code\": \"UNPREDICTABLE_GAS_LIMIT\",\n  \"error\": {\n    \"reason\": \"processing response error\",\n    \"code\": \"SERVER_ERROR\",\n    \"body\": \"{\\\"jsonrpc\\\":\\\"2.0\\\",\\\"id\\\":44,\\\"error\\\":{\\\"code\\\":3,\\\"message\\\":\\\"execution reverted: Reverts: requireWithMessage\\\",\\\"data\\\":\\\"0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001b526576657274733a2072657175697265576974684d6573736167650000000000\\\"}}\",\n    \"error\": {\n      \"code\": 3,\n      \"data\": \"0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001b526576657274733a2072657175697265576974684d6573736167650000000000\"\n    },\n    \"requestBody\": \"{\\\"method\\\":\\\"eth_estimateGas\\\",\\\"params\\\":[{\\\"to\\\":\\\"0x719f833ce1c1490fd1d773625d097654b6f82310\\\",\\\"data\\\":\\\"0x594c9297\\\"}],\\\"id\\\":44,\\\"jsonrpc\\\":\\\"2.0\\\"}\",\n    \"requestMethod\": \"POST\",\n    \"url\": \"https://rpc.ankr.com/eth_goerli\"\n  },\n  \"method\": \"estimateGas\",\n  \"transaction\": {\n    \"to\": \"0x719f833CE1C1490fD1d773625d097654B6f82310\",\n    \"data\": \"0x594c9297\",\n    \"accessList\": null\n  }\n}\n```",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/ErrorCode"
+        },
+        "error": {
+          "$ref": "#/definitions/Error"
+        },
+        "method": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "transaction": {
+          "$ref": "#/definitions/Transaction_1"
+        }
+      },
+      "required": ["code", "error", "method", "reason", "transaction"],
+      "type": "object"
+    }
+  },
+  "description": "Result\n\nExample:\n```json\n{\n  \"reason\": \"Reverts: requireWithMessage\",\n  \"code\": \"UNPREDICTABLE_GAS_LIMIT\",\n  \"parsedError\": {\n    \"reason\": \"cannot estimate gas; transaction may fail or may require manual gas limit\",\n    \"code\": \"UNPREDICTABLE_GAS_LIMIT\",\n    \"error\": {\n      \"reason\": \"processing response error\",\n      \"code\": \"SERVER_ERROR\",\n      \"body\": {\n        \"jsonrpc\": \"2.0\",\n        \"id\": 44,\n        \"error\": {\n          \"code\": 3,\n          \"message\": \"execution reverted: Reverts: requireWithMessage\",\n          \"data\": \"0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001b526576657274733a2072657175697265576974684d6573736167650000000000\"\n        }\n      },\n      \"error\": {\n        \"code\": 3,\n        \"data\": \"0x08c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000001b526576657274733a2072657175697265576974684d6573736167650000000000\"\n      },\n      \"requestBody\": {\n        \"method\": \"eth_estimateGas\",\n        \"params\": [\n          {\n            \"to\": \"0x719f833ce1c1490fd1d773625d097654b6f82310\",\n            \"data\": \"0x594c9297\"\n          }\n        ],\n        \"id\": 44,\n        \"jsonrpc\": \"2.0\"\n      },\n      \"requestMethod\": \"POST\",\n      \"url\": \"https://rpc.ankr.com/eth_goerli\"\n    },\n    \"method\": \"estimateGas\",\n    \"transaction\": {\n      \"to\": \"0x719f833CE1C1490fD1d773625d097654B6f82310\",\n      \"data\": \"0x594c9297\",\n      \"accessList\": null\n    }\n  },\n  \"ethersError\": {\n    // Raw error from ethers\n  }\n}\n```",
+  "properties": {
+    "code": {
+      "$ref": "#/definitions/ErrorCode"
+    },
+    "ethersError": {},
+    "parsedError": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/CallExceptionError"
+        },
+        {
+          "$ref": "#/definitions/UnpredictableGasLimitError"
+        }
+      ]
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "required": ["code", "ethersError", "parsedError", "reason"],
+  "type": "object"
+}
