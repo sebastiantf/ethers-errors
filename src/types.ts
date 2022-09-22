@@ -63,3 +63,7 @@ export interface Result {
   parsedError: ParsedError;
   ethersError: unknown;
 }
+
+export interface EthersError {
+  code: ErrorCode;
+}
