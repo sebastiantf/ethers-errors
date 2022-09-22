@@ -1739,6 +1739,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sebastiantf/reverts@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@sebastiantf/reverts@npm:1.0.1"
+  checksum: b01ff7bdcbac62458cbb2f542b5eafc3deff56ef3ef3f31a4ea7dae653970a41be6e681fa84f31e1af6934144ea2fd567ca4a0b5924e495aebbac453b7de00fd
+  languageName: node
+  linkType: hard
+
 "@sinclair/typebox@npm:^0.24.1":
   version: 0.24.40
   resolution: "@sinclair/typebox@npm:0.24.40"
@@ -3393,6 +3400,7 @@ __metadata:
     "@commitlint/cli": ^17.1.2
     "@commitlint/config-conventional": ^17.1.0
     "@json-rpc-tools/types": ^1.7.6
+    "@sebastiantf/reverts": ^1.0.1
     "@types/jest": ^29.0.1
     "@types/node": ^18.7.16
     "@typescript-eslint/eslint-plugin": ^5.36.2
