@@ -1,0 +1,32 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          cache: yarn
+          node-version: 16
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Lint code
+        run: yarn lint
+
+      - name: Check TypeScript types
+        run: yarn ts:check
+
+      - name: Test
+        run: yarn test
