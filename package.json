@@ -15,7 +15,8 @@
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
     "test": "jest",
-    "test:cov": "jest --coverage"
+    "test:cov": "jest --coverage",
+    "ts:check": "tsc --noEmit"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
