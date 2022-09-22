@@ -39,6 +39,7 @@
     "typescript": "^4.8.3"
   },
   "dependencies": {
+    "@json-rpc-tools/types": "^1.7.6",
     "ethers": "5.1.1"
   }
 }
